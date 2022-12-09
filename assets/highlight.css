@@ -1,0 +1,29 @@
+:root {
+    --light-hl-0: #24292F;
+    --dark-hl-0: #C9D1D9;
+    --light-code-background: #ffffff;
+    --dark-code-background: #0d1117;
+}
+
+@media (prefers-color-scheme: light) { :root {
+    --hl-0: var(--light-hl-0);
+    --code-background: var(--light-code-background);
+} }
+
+@media (prefers-color-scheme: dark) { :root {
+    --hl-0: var(--dark-hl-0);
+    --code-background: var(--dark-code-background);
+} }
+
+:root[data-theme='light'] {
+    --hl-0: var(--light-hl-0);
+    --code-background: var(--light-code-background);
+}
+
+:root[data-theme='dark'] {
+    --hl-0: var(--dark-hl-0);
+    --code-background: var(--dark-code-background);
+}
+
+.hl-0 { color: var(--hl-0); }
+pre, code { background: var(--code-background); }

@@ -1,6 +1,14 @@
 export const capitalize = (v: string) =>
 	v.charAt(0).toUpperCase() + v.slice(1).toLowerCase();
 
+export const formatNumber = (value: number): string => {
+	return Intl.NumberFormat('en-US', {
+		notation: 'compact',
+		compactDisplay: 'short',
+		maximumFractionDigits: 1,
+	}).format(value);
+}
+
 export const truncateString = (value: string, maxLength: number): string => {
 	if (value.length <= maxLength) {
 		return value;

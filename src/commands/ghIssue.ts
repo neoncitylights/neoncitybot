@@ -25,6 +25,7 @@ export const ghIssue: Command = {
 		const gh = client.githubClient;
 		const [owner, repo] = ownerRepo.split('/');
 		const ghIssue = await gh.rest.issues.get({issue_number: issueNumber, owner: owner, repo: repo});
+
 		if (ghIssue.status === 200) {
 			const embedTitle = `[${ownerRepo}] #${ghIssue.data.number}: ${ghIssue.data.title}`;
 			const regexHtmlComments = /(\<!--.*?\-->)/g;

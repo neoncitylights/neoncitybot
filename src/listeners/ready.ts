@@ -1,9 +1,12 @@
-import { ApplicationCommandDataResolvable, Client, Events } from 'discord.js';
-import { CommandRegistry } from './../CommandRegistry';
+import { BotClient } from 'Bot';
+import { ApplicationCommandDataResolvable, Events } from 'discord.js';
+import { OnDiscordEvent } from 'listeners';
+import { CommandRegistry } from './../commands/CommandRegistry';
 
-export const onReady = (client: Client): void => {
-	client.once(Events.ClientReady, async () => {
-		if (!client.user || !client.application) {
+export const onReady: OnDiscordEvent = (client: BotClient): void => {
+	const discordClient = client.discordClient;
+	client.discordClient.once(Events.ClientReady, async () => {
+		if (!discordClient.user || !discordClient.application) {
 			return;
 		}
 
@@ -12,7 +15,7 @@ export const onReady = (client: Client): void => {
 			commandJson.push(command.data.toJSON());
 		});
 
-		await client.application.commands.set(commandJson);
-		console.log(`${client.user.username} (${client.user.tag}) is online`);
+		await discordClient.application.commands.set(commandJson);
+		console.log(`${discordClient.user.username} (${discordClient.user.tag}) is online`);
 	});
 };

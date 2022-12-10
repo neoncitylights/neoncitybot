@@ -11,7 +11,7 @@ const discordClient = new Client({
 	]
 });
 
-type BotClient = {
+export type BotClient = {
 	githubClient: Octokit;
 	discordClient: Client;
 }
@@ -21,6 +21,6 @@ const botClient: BotClient = {
 	discordClient: discordClient,
 };
 
-onReady(discordClient);
-onInteractionCreate(discordClient);
+onReady(botClient);
+onInteractionCreate(botClient);
 discordClient.login(configFile.discordToken);

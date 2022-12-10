@@ -1,7 +1,14 @@
 import { BotClient } from 'Bot';
-import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
+import {
+	CommandInteraction,
+	SlashCommandBuilder,
+	SlashCommandSubcommandsOnlyBuilder
+} from 'discord.js';
 
 export interface Command {
-	data: SlashCommandBuilder;
+	data:
+		| SlashCommandBuilder
+		| SlashCommandSubcommandsOnlyBuilder
+		| Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
 	run: (client: BotClient, interaction: CommandInteraction) => Promise<void>;
 }

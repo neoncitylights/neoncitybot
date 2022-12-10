@@ -38,7 +38,7 @@
 		"test": "vitest --coverage",
 		"test:ci": "npm run test -- run",
 		"test:ui": "npm run test -- --ui",
-		"test:all": "npm run test:ci && npm run lint",
+		"test:all": "npm run lint",
 		"lint": "eslint src --ext .ts,.tsx",
 		"lint:fix": "npm run lint -- --fix",
 		"prepare": "npm run build",
@@ -63,6 +63,8 @@
 	},
 	"dependencies": {
 		"@discordjs/rest": "^1.4.0",
+		"@octokit/core": "^4.1.0",
+		"@octokit/plugin-rest-endpoint-methods": "^6.7.0",
 		"discord.js": "^14.7.1",
 		"octokit": "^2.0.10",
 		"yoctocolors": "^1.0.0"

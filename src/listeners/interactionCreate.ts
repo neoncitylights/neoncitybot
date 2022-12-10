@@ -15,9 +15,14 @@ export const onInteractionCreate: OnDiscordEvent = (client: BotClient): void => 
 const handleSlashCommand = async (client: BotClient, interaction: CommandInteraction): Promise<void> => {
 	const slashCommand = CommandRegistry.find(c => c.data.name === interaction.commandName);
 	if (!slashCommand) {
-		interaction.followUp({ content: 'An error has occurred' });
+		await interaction.followUp({ content: 'An error has occurred', ephemeral: true });
 		return;
 	}
 
-	slashCommand.run(client, interaction);
+	try {
+		await slashCommand.run(client, interaction);
+	} catch (error) {
+		console.error(error);
+		await interaction.followUp({ content: 'An error has occurred', ephemeral: true });
+	}
 };

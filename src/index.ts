@@ -1,5 +1,4 @@
-export function greet(name: string): string {
-	return `Hello, ${name}!`;
-}
-
-console.log(greet('World'));
+export * from './Command';
+export * from './CommandRegistry';
+export * as listeners from './listeners';
+export * as commands from './commands';

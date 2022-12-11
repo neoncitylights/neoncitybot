@@ -1,7 +1,7 @@
 import { BotClient } from 'Bot';
 import { ApplicationCommandDataResolvable, Events } from 'discord.js';
 import { OnDiscordEvent } from 'listeners';
-import { CommandRegistry } from './../commands/CommandRegistry';
+import { CommandRegistry } from '~/commands/CommandRegistry';
 
 export const onReady: OnDiscordEvent = (client: BotClient): void => {
 	const discordClient = client.discordClient;

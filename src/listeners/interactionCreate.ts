@@ -1,7 +1,7 @@
 import { BotClient } from 'Bot';
 import { Client, CommandInteraction, Events } from 'discord.js';
-import { OnDiscordEvent } from 'listeners';
-import { CommandRegistry } from './../commands/CommandRegistry';
+import { OnDiscordEvent } from '~/listeners';
+import { CommandRegistry } from '~/commands/CommandRegistry';
 
 export const onInteractionCreate: OnDiscordEvent = (client: BotClient): void => {
 	const discordClient = client.discordClient;

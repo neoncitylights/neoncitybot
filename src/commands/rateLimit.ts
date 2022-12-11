@@ -1,5 +1,5 @@
 import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { BotClient } from 'Bot';
+import { BotClient } from '~/Bot';
 import { Command } from './Command';
 import { components } from '@octokit/openapi-types';
 

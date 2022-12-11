@@ -1,7 +1,7 @@
 import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { BotClient } from 'Bot';
 import { Command } from './Command';
-import { truncateString, getIssueStatus, getLabels } from './../utils';
+import { truncateString, getIssueStatus, getLabels } from 'utils';
 
 export const ghIssue: Command = {
 	data: new SlashCommandBuilder()

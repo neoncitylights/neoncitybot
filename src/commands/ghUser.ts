@@ -1,7 +1,7 @@
 import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { BotClient } from 'Bot';
 import { Command } from './Command';
-import { formatNumber } from './../utils';
+import { formatNumber } from '~/utils';
 
 export const ghUser: Command = {
 	data: new SlashCommandBuilder()

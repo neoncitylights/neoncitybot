@@ -1,4 +1,4 @@
-import { BotClient } from '~/Bot';
+import { BotClient } from '~/types';
 import {
 	CommandInteraction,
 	SlashCommandBuilder,

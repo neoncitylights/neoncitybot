@@ -4,7 +4,7 @@ import path from 'path';
 import { Octokit } from 'octokit';
 import { onReady } from './listeners/ready';
 import { onInteractionCreate } from './listeners/interactionCreate';
-import { BotClient, ConfigFileSchema } from './types';
+import { BotClient, ConfigFileSchema } from '~/types';
 
 const configFilePath: string = path.join(__dirname, './config.json');
 if(!fs.existsSync(configFilePath)) {

@@ -1,4 +1,4 @@
-import { BotClient } from 'Bot';
+import { BotClient } from '~/types';
 import { ApplicationCommandDataResolvable, Events } from 'discord.js';
 import { OnDiscordEvent } from 'listeners';
 import { CommandRegistry } from '~/commands/CommandRegistry';

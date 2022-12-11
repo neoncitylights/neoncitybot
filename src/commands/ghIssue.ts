@@ -1,5 +1,5 @@
 import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { BotClient } from 'Bot';
+import { BotClient } from '~/types';
 import { Command } from './Command';
 import { truncateString, getIssueStatus, getLabels } from 'utils';
 

@@ -4,6 +4,7 @@ import path from 'path';
 import { Octokit } from 'octokit';
 import { onReady } from './listeners/ready';
 import { onInteractionCreate } from './listeners/interactionCreate';
+import { BotClient, ConfigFileSchema } from './types';
 
 const configFilePath: string = path.join(__dirname, './config.json');
 if(!fs.existsSync(configFilePath)) {
@@ -11,18 +12,18 @@ if(!fs.existsSync(configFilePath)) {
 	process.exit(1);
 }
 
-const configFile = JSON.parse(fs.readFileSync(configFilePath, 'utf-8'));
-const githubClient = new Octokit({ auth: configFile.githubToken });
+const configFile = JSON.parse(fs.readFileSync(configFilePath, 'utf-8')) as ConfigFileSchema;
+const githubClient = new Octokit({
+	auth: configFile.tokens.github,
+	userAgent: configFile.github.userAgent,
+	timeZone: configFile.github.timeZone,
+});
+
 const discordClient = new Client({
 	intents: [
 		GatewayIntentBits.Guilds
-	]
+	],
 });
-
-export type BotClient = {
-	githubClient: Octokit;
-	discordClient: Client;
-}
 
 const botClient: BotClient = {
 	githubClient: githubClient,
@@ -31,4 +32,4 @@ const botClient: BotClient = {
 
 onReady(botClient);
 onInteractionCreate(botClient);
-discordClient.login(configFile.discordToken);
+discordClient.login(configFile.tokens.discord);

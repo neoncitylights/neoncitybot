@@ -1,7 +1,7 @@
 import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { BotClient } from '~/types';
 import { Command } from './Command';
-import { formatNumber } from '~/utils';
+import { BotClient } from './../types';
+import { formatNumber } from './../utils';
 
 const OptionUsername = 'username';
 

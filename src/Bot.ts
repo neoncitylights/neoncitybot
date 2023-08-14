@@ -33,3 +33,5 @@ const botClient: BotClient = {
 onReady(botClient);
 onInteractionCreate(botClient);
 discordClient.login(configFile.tokens.discord);
+
+export { BotClient };

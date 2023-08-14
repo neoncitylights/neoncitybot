@@ -1,7 +1,7 @@
 import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { BotClient } from '~/types';
 import { Command } from './Command';
-import { truncateString, getIssueStatus, getLabels } from 'utils';
+import { BotClient } from './../types';
+import { truncateString, getIssueStatus, getLabels } from './../utils';
 
 const OptionRepo = 'repository';
 const OptionNumber = 'number';

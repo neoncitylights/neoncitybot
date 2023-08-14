@@ -1,5 +1,17 @@
+import { components } from '@octokit/openapi-types';
 import { RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods';
 import { snakeCaseToTitleCase } from './strings';
+
+/**
+ * Returns a formatted string of the commit diff stats, e.g:
+ * - `+1 / -1 (2)`
+ * - `No changes`
+ */
+export const getCommitDiffStats = (diff: components['schemas']['commit']['stats']): string => {
+	if(diff === undefined) return '';
+	if(diff.total === 0) return 'No changes';
+	return `+${diff.additions} / -${diff.deletions} (${diff.total})`;
+}
 
 /**
  * Formats the issue status into a more human-readable format.
@@ -29,6 +41,10 @@ export const getIssueStatus = (issue: RestEndpointMethodTypes['issues']['get']['
 	}
 }
 
+/**
+ * Returns a comma-separated string of labels with
+ * inline-code formatting.
+ */
 export const getLabels = (issue: RestEndpointMethodTypes['issues']['get']['response']): string => {
 	return issue.data.labels?.map(label => {
 		if(typeof label !== 'string') {

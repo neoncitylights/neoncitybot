@@ -67,6 +67,7 @@
 		"@octokit/core": "^4.1.0",
 		"@octokit/openapi-types": "^14.0.0",
 		"@octokit/plugin-rest-endpoint-methods": "^6.7.0",
+		"@octokit/types": "^8.0.0",
 		"discord.js": "^14.7.1",
 		"octokit": "^2.0.10",
 		"yoctocolors": "^1.0.0"

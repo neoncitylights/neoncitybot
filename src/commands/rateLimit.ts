@@ -30,9 +30,9 @@ const formatRateLimit = (rateLimit: components['schemas']['rate-limit']) => {
 		.setDescription(`You have ${remaining} of ${limit} requests remaining.`)
 		.setThumbnail('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png')
 		.addFields(
-			{ name: 'Limit', value: limit.toString() + " requests allowed per hour", inline: true },
-			{ name: 'Used', value: used.toString() + " requests made", inline: true },
-			{ name: 'Remaining', value: remaining.toString() + " requests remaining", inline: true },
+			{ name: 'Limit', value: `${limit} requests allowed per hour`, inline: true },
+			{ name: 'Used', value: `${used} requests made`, inline: true },
+			{ name: 'Remaining', value: `${remaining} requests remaining`, inline: true },
 		)
 		.setFooter({
 			text: `Resets at ${new Date(reset * 1000).toLocaleString()}.`,

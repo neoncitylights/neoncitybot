@@ -3,16 +3,19 @@ import { BotClient } from '~/types';
 import { Command } from './Command';
 import { truncateString, getIssueStatus, getLabels } from 'utils';
 
+const OptionRepo = 'repository';
+const OptionNumber = 'number';
+
 export const ghIssue: Command = {
 	data: new SlashCommandBuilder()
 		.setName('ghissue')
 		.setDescription('Get information about a GitHub issue')
 		.addStringOption(option => option
-			.setName('repository')
+			.setName(OptionRepo)
 			.setDescription('The owner and repository name')
 			.setRequired(true))
 		.addIntegerOption(option => option
-			.setName('number')
+			.setName(OptionNumber)
 			.setDescription('The issue number')
 			.setRequired(true)),
 
@@ -20,7 +23,7 @@ export const ghIssue: Command = {
 		if(!interaction.isChatInputCommand()) return;
 
 		const ownerRepo = interaction.options.getString('repository') as string;
-		const issueNumber = interaction.options.getInteger('number') as number;
+		const issueNumber = interaction.options.getInteger(OptionNumber) as number;
 
 		const gh = client.githubClient;
 		const [owner, repo] = ownerRepo.split('/');

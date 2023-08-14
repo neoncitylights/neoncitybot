@@ -3,19 +3,21 @@ import { BotClient } from '~/types';
 import { Command } from './Command';
 import { formatNumber } from '~/utils';
 
+const OptionUsername = 'username';
+
 export const ghUser: Command = {
 	data: new SlashCommandBuilder()
 		.setName('ghuser')
 		.setDescription('Get information about a GitHub user')
 		.addStringOption(option => option
-			.setName('username')
+			.setName(OptionUsername)
 			.setDescription('The GitHub username to get information about')
 			.setRequired(true)),
 
 	run: async (client: BotClient, interaction: CommandInteraction) => {
 		if(!interaction.isChatInputCommand()) return;
 
-		const username = interaction.options.getString('username') as string;
+		const username = interaction.options.getString(OptionUsername) as string;
 		const gh = client.githubClient;
 		const ghUser = await gh.rest.users.getByUsername({username: username as string});
 
